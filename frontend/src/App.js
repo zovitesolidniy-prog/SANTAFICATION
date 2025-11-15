@@ -92,12 +92,25 @@ function App() {
       <div className="pixel-container">
         {/* Header */}
         <header className="header" data-testid="app-header">
-          <div className="pixel-badge"></div>
-          <h1 className="title" data-testid="app-title">
+          <div className="logo-container">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/9lf9mvbs_character.png" 
+              alt="Pokemon Logo" 
+              className="logo-image"
+              data-testid="logo-image"
+            />
+          </div>
+          <div className="title" data-testid="app-title">
             <span className="title-text">POKÉMON</span>
             <span className="title-sub">PIXELIZER</span>
-          </h1>
-          <div className="pixel-badge"></div>
+          </div>
+          <div className="logo-container">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/9lf9mvbs_character.png" 
+              alt="Pokemon Logo" 
+              className="logo-image"
+            />
+          </div>
         </header>
 
         {/* Main Content */}

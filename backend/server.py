@@ -63,7 +63,7 @@ async def root():
 @api_router.post("/pixelify", response_model=ImageResponse)
 async def pixelify_image(request: ImageRequest):
     """
-    Process uploaded image and convert it to pixelated Pokemon style using GPT-5.1
+    Process uploaded image and convert it to pixelated Pokemon style using GPT-4o
     """
     try:
         # Validate base64 image
@@ -84,13 +84,13 @@ async def pixelify_image(request: ImageRequest):
             logger.error(f"Invalid image format: {e}")
             raise HTTPException(status_code=400, detail="Invalid image format")
         
-        # Initialize LLM Chat with GPT-5.1
-        openai_key = os.environ.get('OPENAI_API_KEY')
-        if not openai_key:
-            raise HTTPException(status_code=500, detail="OpenAI API key not configured")
+        # Initialize LLM Chat with Emergent LLM Key
+        api_key = os.environ.get('EMERGENT_LLM_KEY')
+        if not api_key:
+            raise HTTPException(status_code=500, detail="API key not configured")
         
         chat = LlmChat(
-            api_key=openai_key,
+            api_key=api_key,
             session_id=str(uuid.uuid4()),
             system_message="You are a creative Pokemon artist specializing in pixelated art. Transform any image into a detailed description of how it would look as a pixelated Pokemon character in classic 8-bit or 16-bit style. Be vivid and descriptive about the colors, shapes, and Pokemon-like features."
         ).with_model("openai", "gpt-4o")
@@ -104,7 +104,7 @@ async def pixelify_image(request: ImageRequest):
             file_contents=[image_content]
         )
         
-        # Get response from GPT-5.1
+        # Get response from GPT-4o
         logger.info("Sending request to GPT-4o for image analysis")
         response = await chat.send_message(user_message)
         logger.info(f"Received response: {response[:100]}...")
