@@ -186,36 +186,42 @@ const SantaWorld = () => {
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Sky gradient
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, '#1a1a2e');
-      gradient.addColorStop(1, '#16213e');
-      ctx.fillStyle = gradient;
+      // Background (snowy ground)
+      ctx.fillStyle = '#f0f8ff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Stars
-      ctx.fillStyle = '#fff';
-      for (let i = 0; i < 30; i++) {
-        const x = (i * 123) % canvas.width;
-        const y = (i * 234) % (canvas.height / 2);
-        ctx.fillRect(x, y, 2, 2);
+      // Snow texture
+      ctx.fillStyle = '#e8f4f8';
+      for (let i = 0; i < 100; i++) {
+        const x = (i * 157) % canvas.width;
+        const y = (i * 239) % canvas.height;
+        ctx.fillRect(x, y, 3, 3);
       }
 
-      // Moon
-      ctx.fillStyle = '#f0f0f0';
+      // Roads (darker paths)
+      ctx.fillStyle = '#c8d8e4';
+      // Horizontal roads
+      ctx.fillRect(0, 280, canvas.width, 60);
+      ctx.fillRect(0, 480, canvas.width, 60);
+      // Vertical roads
+      ctx.fillRect(500, 0, 60, canvas.height);
+      ctx.fillRect(1000, 0, 60, canvas.height);
+
+      // Road lines
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([20, 15]);
       ctx.beginPath();
-      ctx.arc(1400, 100, 40, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Ground
-      ctx.fillStyle = '#e8f5e9';
-      ctx.fillRect(0, canvas.height - 80, canvas.width, 80);
-
-      // Snow on ground
-      ctx.fillStyle = '#fff';
-      for (let i = 0; i < canvas.width; i += 20) {
-        ctx.fillRect(i, canvas.height - 85, 15, 5);
-      }
+      ctx.moveTo(0, 310);
+      ctx.lineTo(canvas.width, 310);
+      ctx.moveTo(0, 510);
+      ctx.lineTo(canvas.width, 510);
+      ctx.moveTo(530, 0);
+      ctx.lineTo(530, canvas.height);
+      ctx.moveTo(1030, 0);
+      ctx.lineTo(1030, canvas.height);
+      ctx.stroke();
+      ctx.setLineDash([]);
 
       // Draw buildings
       buildings.forEach(building => drawBuilding(building));
