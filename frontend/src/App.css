@@ -60,12 +60,12 @@
 
 .title-text {
   font-size: clamp(1.5rem, 5vw, 3rem);
-  color: #ffd700;
+  color: #fff;
   text-shadow: 
-    4px 4px 0 #000,
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
+    4px 4px 0 #c02425,
+    -2px -2px 0 #c02425,
+    2px -2px 0 #c02425,
+    -2px 2px 0 #c02425,
     0 4px 0 rgba(0, 0, 0, 0.3);
   letter-spacing: 0.1em;
 }
