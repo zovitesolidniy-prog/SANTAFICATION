@@ -66,7 +66,7 @@ async def root():
 @api_router.post("/pixelify", response_model=ImageResponse)
 async def pixelify_image(request: ImageRequest):
     """
-    Process uploaded image and convert it to pixelated Pokemon style using GPT-4o
+    Process uploaded image and transform character into Santa version using GPT-4o and DALL-E
     """
     try:
         # Validate base64 image
