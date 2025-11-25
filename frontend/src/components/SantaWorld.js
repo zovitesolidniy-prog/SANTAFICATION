@@ -110,7 +110,7 @@ const SantaWorld = () => {
     // Create Santas
     const santas = [];
     for (let i = 0; i < 20; i++) {
-      santas.push(new Santa());
+      santas.push(new Santa(i));
     }
     setSantaCount(santas.length);
 
