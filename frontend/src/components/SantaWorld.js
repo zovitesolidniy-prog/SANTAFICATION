@@ -549,16 +549,40 @@ const SantaWorld = () => {
         </div>
       </div>
 
-      <div className="canvas-container">
-        <canvas ref={canvasRef} className="world-canvas" />
-      </div>
-
-      <div className="world-info">
-        <div className="info-card">
-          <Info size={20} />
-          <p>Watch {santaCount} pixel Santas roaming around Santa Town!</p>
+      {!walletAddress ? (
+        <div className="wallet-required">
+          <div className="wallet-required-card">
+            <Wallet size={64} />
+            <h2>Connect Your Phantom Wallet</h2>
+            <p>You need to connect your Phantom wallet to enter Santa Town and watch Santas deliver Solana coins!</p>
+            <Button
+              onClick={connectWallet}
+              disabled={isConnecting}
+              className="connect-wallet-button-large"
+              size="lg"
+            >
+              <Wallet size={20} />
+              {isConnecting ? 'Connecting...' : 'Connect Phantom Wallet'}
+            </Button>
+            <p className="install-hint">
+              Don't have Phantom? <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer">Install it here</a>
+            </p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="canvas-container">
+            <canvas ref={canvasRef} className="world-canvas" />
+          </div>
+
+          <div className="world-info">
+            <div className="info-card">
+              <Info size={20} />
+              <p>Watch {santaCount} pixel Santas roaming around Santa Town delivering Solana coins!</p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
