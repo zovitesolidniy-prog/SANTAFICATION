@@ -115,6 +115,19 @@ function App() {
           </div>
         </header>
 
+        {/* Santa World Button */}
+        <div className="santa-world-banner">
+          <Button
+            onClick={() => navigate('/santa-world')}
+            className="world-button"
+            data-testid="world-button"
+            size="lg"
+          >
+            <Globe className="button-icon" size={24} />
+            VISIT SANTA TOWN
+          </Button>
+        </div>
+
         {/* Main Content */}
         <div className="content-wrapper">
           {!result ? (
