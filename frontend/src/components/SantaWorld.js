@@ -30,16 +30,16 @@ const SantaWorld = () => {
 
     // Buildings (top-down view)
     const buildings = [
-      { x: 100, y: 150, width: 150, height: 120, color: '#8B4513', roofColor: '#c02425' },
-      { x: 300, y: 100, width: 120, height: 140, color: '#A0522D', roofColor: '#a01f20' },
-      { x: 480, y: 300, width: 160, height: 130, color: '#8B4513', roofColor: '#c02425' },
-      { x: 700, y: 150, width: 130, height: 110, color: '#A0522D', roofColor: '#a01f20' },
-      { x: 900, y: 250, width: 140, height: 140, color: '#8B4513', roofColor: '#c02425' },
-      { x: 1100, y: 100, width: 135, height: 125, color: '#A0522D', roofColor: '#a01f20' },
-      { x: 1300, y: 300, width: 150, height: 140, color: '#8B4513', roofColor: '#c02425' },
-      { x: 200, y: 500, width: 110, height: 100, color: '#A0522D', roofColor: '#a01f20' },
-      { x: 800, y: 550, width: 130, height: 120, color: '#8B4513', roofColor: '#c02425' },
-      { x: 1200, y: 520, width: 140, height: 110, color: '#A0522D', roofColor: '#a01f20' }
+      { x: 100, y: 150, width: 150, height: 120, color: '#8B4513', roofColor: '#c02425', coins: 0 },
+      { x: 300, y: 100, width: 120, height: 140, color: '#A0522D', roofColor: '#a01f20', coins: 0 },
+      { x: 480, y: 300, width: 160, height: 130, color: '#8B4513', roofColor: '#c02425', coins: 0 },
+      { x: 700, y: 150, width: 130, height: 110, color: '#A0522D', roofColor: '#a01f20', coins: 0 },
+      { x: 900, y: 250, width: 140, height: 140, color: '#8B4513', roofColor: '#c02425', coins: 0 },
+      { x: 1100, y: 100, width: 135, height: 125, color: '#A0522D', roofColor: '#a01f20', coins: 0 },
+      { x: 1300, y: 300, width: 150, height: 140, color: '#8B4513', roofColor: '#c02425', coins: 0 },
+      { x: 200, y: 500, width: 110, height: 100, color: '#A0522D', roofColor: '#a01f20', coins: 0 },
+      { x: 800, y: 550, width: 130, height: 120, color: '#8B4513', roofColor: '#c02425', coins: 0 },
+      { x: 1200, y: 520, width: 140, height: 110, color: '#A0522D', roofColor: '#a01f20', coins: 0 }
     ];
 
     // Santa class
