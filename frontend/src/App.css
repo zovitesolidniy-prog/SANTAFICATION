@@ -8,7 +8,7 @@
 
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(135deg, #c02425 0%, #f0785a 50%, #ff6b6b 100%);
   font-family: 'Press Start 2P', cursive;
   position: relative;
   overflow-x: hidden;
