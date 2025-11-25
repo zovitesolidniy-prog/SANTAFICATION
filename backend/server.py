@@ -142,7 +142,7 @@ async def pixelify_image(request: ImageRequest):
         # Store in MongoDB
         doc = result.model_dump()
         doc['timestamp'] = doc['timestamp'].isoformat()
-        await db.pokemon_conversions.insert_one(doc)
+        await db.santa_conversions.insert_one(doc)
         
         return result
         
