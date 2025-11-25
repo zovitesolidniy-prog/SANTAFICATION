@@ -205,12 +205,25 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Pixelified Description */}
-                  <div className="result-description-container">
-                    <h3 className="result-label">POKÉMON VISION</h3>
-                    <div className="result-description" data-testid="result-text">
-                      <p>{result.result_text}</p>
+                  {/* Generated Pokemon Image */}
+                  <div className="result-image-container">
+                    <h3 className="result-label">PIXELIFIED POKÉMON</h3>
+                    <div className="result-image-wrapper">
+                      <img 
+                        src={result.generated_image} 
+                        alt="Pixelified Pokemon" 
+                        className="result-image pixelated"
+                        data-testid="generated-image"
+                      />
                     </div>
+                  </div>
+                </div>
+                
+                {/* Description */}
+                <div className="result-description-full">
+                  <h3 className="result-label">POKÉMON DESCRIPTION</h3>
+                  <div className="result-description" data-testid="result-text">
+                    <p>{result.result_text}</p>
                   </div>
                 </div>
 
