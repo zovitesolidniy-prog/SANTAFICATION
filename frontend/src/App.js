@@ -94,8 +94,8 @@ function App() {
         <header className="header" data-testid="app-header">
           <div className="logo-container">
             <img 
-              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/9lf9mvbs_character.png" 
-              alt="Pokemon Logo" 
+              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/o5rushk9_image.png" 
+              alt="Santa Logo" 
               className="logo-image"
               data-testid="logo-image"
             />
@@ -106,8 +106,8 @@ function App() {
           </div>
           <div className="logo-container">
             <img 
-              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/9lf9mvbs_character.png" 
-              alt="Pokemon Logo" 
+              src="https://customer-assets.emergentagent.com/job_pixel-pokemon-1/artifacts/o5rushk9_image.png" 
+              alt="Santa Logo" 
               className="logo-image"
             />
           </div>
