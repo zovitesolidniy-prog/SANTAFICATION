@@ -296,14 +296,14 @@
 }
 
 .result-icon {
-  color: #ffd700;
+  color: #c02425;
   filter: drop-shadow(2px 2px 0 #000);
   animation: pulse 2s ease-in-out infinite;
 }
 
 .result-title {
   font-size: 1.5rem;
-  color: #667eea;
+  color: #c02425;
   text-shadow: 
     3px 3px 0 #000,
     -1px -1px 0 #000,
