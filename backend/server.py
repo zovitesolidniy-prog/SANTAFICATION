@@ -116,8 +116,8 @@ async def pixelify_image(request: ImageRequest):
         logger.info("Generating pixelated Pokemon image...")
         image_gen = OpenAIImageGeneration(api_key=api_key)
         
-        # Create a focused prompt for pixel art generation
-        generation_prompt = f"Create a pixelated 16-bit Pokemon sprite in classic Game Boy Advance style. {analysis[:200]}. The sprite should have: clear pixel edges, limited color palette (8-12 colors), simple shapes, Pokemon-like features, centered on white background, 256x256 pixels."
+        # Create a focused prompt for Santa transformation
+        generation_prompt = f"Transform this character into a Santa version: keep the original character exactly as it is, but add a classic red Santa hat with white fluffy trim and a white pom-pom on top, and a fluffy white Santa beard. The character should maintain its original style, colors, body shape, and personality. {analysis[:150]}. Professional illustration style, clean white background."
         
         images = await image_gen.generate_images(
             prompt=generation_prompt,
