@@ -61,7 +61,7 @@ class PokemonHistory(BaseModel):
 # Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Pokemon Pixelizer API"}
+    return {"message": "Santa Transformer API"}
 
 @api_router.post("/pixelify", response_model=ImageResponse)
 async def pixelify_image(request: ImageRequest):
