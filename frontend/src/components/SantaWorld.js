@@ -25,18 +25,18 @@ const SantaWorld = () => {
       'Merry', 'Cheer', 'Holly', 'Ivy', 'Noel'
     ];
 
-    // Buildings
+    // Buildings (top-down view)
     const buildings = [
-      { x: 100, y: 500, width: 120, height: 180, color: '#8B4513', roofColor: '#c02425', windows: 6 },
-      { x: 280, y: 450, width: 100, height: 230, color: '#A0522D', roofColor: '#a01f20', windows: 8 },
-      { x: 450, y: 480, width: 140, height: 200, color: '#8B4513', roofColor: '#c02425', windows: 9 },
-      { x: 650, y: 520, width: 110, height: 160, color: '#A0522D', roofColor: '#a01f20', windows: 6 },
-      { x: 820, y: 460, width: 130, height: 220, color: '#8B4513', roofColor: '#c02425', windows: 8 },
-      { x: 1020, y: 500, width: 120, height: 180, color: '#A0522D', roofColor: '#a01f20', windows: 6 },
-      { x: 1200, y: 470, width: 150, height: 210, color: '#8B4513', roofColor: '#c02425', windows: 10 },
-      { x: 1400, y: 510, width: 100, height: 170, color: '#A0522D', roofColor: '#a01f20', windows: 6 },
-      { x: 550, y: 600, width: 90, height: 100, color: '#8B4513', roofColor: '#c02425', windows: 4 },
-      { x: 950, y: 590, width: 95, height: 110, color: '#A0522D', roofColor: '#a01f20', windows: 4 }
+      { x: 100, y: 150, width: 150, height: 120, color: '#8B4513', roofColor: '#c02425' },
+      { x: 300, y: 100, width: 120, height: 140, color: '#A0522D', roofColor: '#a01f20' },
+      { x: 480, y: 300, width: 160, height: 130, color: '#8B4513', roofColor: '#c02425' },
+      { x: 700, y: 150, width: 130, height: 110, color: '#A0522D', roofColor: '#a01f20' },
+      { x: 900, y: 250, width: 140, height: 140, color: '#8B4513', roofColor: '#c02425' },
+      { x: 1100, y: 100, width: 135, height: 125, color: '#A0522D', roofColor: '#a01f20' },
+      { x: 1300, y: 300, width: 150, height: 140, color: '#8B4513', roofColor: '#c02425' },
+      { x: 200, y: 500, width: 110, height: 100, color: '#A0522D', roofColor: '#a01f20' },
+      { x: 800, y: 550, width: 130, height: 120, color: '#8B4513', roofColor: '#c02425' },
+      { x: 1200, y: 520, width: 140, height: 110, color: '#A0522D', roofColor: '#a01f20' }
     ];
 
     // Santa class
