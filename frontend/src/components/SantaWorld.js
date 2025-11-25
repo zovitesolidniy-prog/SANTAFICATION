@@ -72,47 +72,38 @@ const SantaWorld = () => {
       }
 
       draw() {
-        // Simple pixel Santa
-        // Hat
+        // Top-down view Santa
+        // Body (red coat)
         ctx.fillStyle = '#c02425';
-        ctx.fillRect(this.x + 3, this.y, 10, 6);
-        // Hat pom
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(this.x + 6, this.y - 2, 4, 4);
+        ctx.fillRect(this.x + 2, this.y + 2, 12, 12);
         
-        // Face
+        // Hat (white trim)
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(this.x + 4, this.y, 8, 3);
+        
+        // Hat top (red)
+        ctx.fillStyle = '#c02425';
+        ctx.fillRect(this.x + 5, this.y - 2, 6, 4);
+        
+        // Face/head
         ctx.fillStyle = '#ffdbac';
-        ctx.fillRect(this.x + 4, this.y + 6, 8, 6);
-        
-        // Beard
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(this.x + 3, this.y + 10, 10, 4);
-        
-        // Body
-        ctx.fillStyle = '#c02425';
-        ctx.fillRect(this.x + 2, this.y + 14, 12, 6);
-        
-        // Arms
-        ctx.fillStyle = '#c02425';
-        ctx.fillRect(this.x, this.y + 15, 2, 3);
-        ctx.fillRect(this.x + 14, this.y + 15, 2, 3);
+        ctx.fillRect(this.x + 5, this.y + 3, 6, 6);
         
         // Belt
         ctx.fillStyle = '#000';
-        ctx.fillRect(this.x + 2, this.y + 18, 12, 1);
+        ctx.fillRect(this.x + 2, this.y + 8, 12, 2);
         
         // Buckle
         ctx.fillStyle = '#ffd700';
-        ctx.fillRect(this.x + 6, this.y + 17, 4, 2);
+        ctx.fillRect(this.x + 6, this.y + 8, 4, 2);
 
-        // Name label
-        if (this.showName) {
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          ctx.fillRect(this.x - 10, this.y - 15, 36, 12);
-          ctx.fillStyle = '#fff';
-          ctx.font = '8px "Press Start 2P"';
-          ctx.fillText(this.name, this.x - 8, this.y - 7);
-        }
+        // Name label (always show)
+        const nameWidth = ctx.measureText(this.name).width + 8;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        ctx.fillRect(this.x - (nameWidth / 2) + 8, this.y - 18, nameWidth, 14);
+        ctx.fillStyle = '#ffd700';
+        ctx.font = '8px "Press Start 2P"';
+        ctx.fillText(this.name, this.x - (nameWidth / 2) + 12, this.y - 8);
       }
     }
 
