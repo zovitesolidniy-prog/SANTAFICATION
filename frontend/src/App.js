@@ -193,7 +193,7 @@ function App() {
               <CardContent className="result-content">
                 <div className="result-header">
                   <Sparkles className="result-icon" size={32} />
-                  <h2 className="result-title" data-testid="result-title">PIXELIFIED!</h2>
+                  <h2 className="result-title" data-testid="result-title">SANTAFIED!</h2>
                 </div>
                 
                 <div className="result-grid">
