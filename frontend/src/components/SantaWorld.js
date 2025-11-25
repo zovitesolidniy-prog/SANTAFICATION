@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Home, Info } from 'lucide-react';
+import { Home, Info, Wallet } from 'lucide-react';
+import { toast } from 'sonner';
 import '@/SantaWorld.css';
 
 const SantaWorld = () => {
