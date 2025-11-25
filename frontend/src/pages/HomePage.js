@@ -101,8 +101,8 @@ function HomePage() {
           />
         </div>
         <div className="title" data-testid="app-title">
-          <span className="title-text">SANTA</span>
-          <span className="title-sub">TRANSFORMER</span>
+          <span className="title-text">SANTAFICATION</span>
+          <span className="title-sub">TRANSFORM INTO SANTA</span>
         </div>
         <div className="logo-container">
           <img 
