@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.santa-world {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Press Start 2P', cursive;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+}
+
+.world-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.world-title {
+  flex: 1;
+  text-align: center;
+}
+
+.world-title-text {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #fff;
+  text-shadow: 
+    3px 3px 0 #c02425,
+    -2px -2px 0 #c02425,
+    2px -2px 0 #c02425,
+    -2px 2px 0 #c02425;
+  letter-spacing: 0.1em;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #c02425, #f0785a);
+  color: #fff;
+  border: 3px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  background: linear-gradient(135deg, #a01f20, #c02425);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.canvas-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  border: 6px solid #000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  background: #000;
+  overflow: hidden;
+}
+
+.world-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.world-info {
+  max-width: 1600px;
+  margin: 2rem auto 0;
+}
+
+.info-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 4px solid #ffd700;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.info-card svg {
+  flex-shrink: 0;
+  color: #ffd700;
+}
+
+@media (max-width: 768px) {
+  .world-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
