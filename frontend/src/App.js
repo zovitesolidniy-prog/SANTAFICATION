@@ -205,14 +205,14 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Generated Pokemon Image */}
+                  {/* Generated Santa Image */}
                   <div className="result-image-container">
-                    <h3 className="result-label">PIXELIFIED POKÉMON</h3>
+                    <h3 className="result-label">SANTA VERSION</h3>
                     <div className="result-image-wrapper">
                       <img 
                         src={result.generated_image} 
-                        alt="Pixelified Pokemon" 
-                        className="result-image pixelated"
+                        alt="Santa Version" 
+                        className="result-image"
                         data-testid="generated-image"
                       />
                     </div>
@@ -221,7 +221,7 @@ function App() {
                 
                 {/* Description */}
                 <div className="result-description-full">
-                  <h3 className="result-label">POKÉMON DESCRIPTION</h3>
+                  <h3 className="result-label">TRANSFORMATION DETAILS</h3>
                   <div className="result-description" data-testid="result-text">
                     <p>{result.result_text}</p>
                   </div>
