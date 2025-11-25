@@ -502,7 +502,7 @@ const SantaWorld = () => {
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [walletAddress]);
 
   return (
     <div className="santa-world">
