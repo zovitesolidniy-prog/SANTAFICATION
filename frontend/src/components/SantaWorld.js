@@ -114,48 +114,59 @@ const SantaWorld = () => {
     }
     setSantaCount(santas.length);
 
-    // Draw building
+    // Draw building (top-down view)
     function drawBuilding(building) {
-      // Main building
+      // Roof (dark red top)
+      ctx.fillStyle = building.roofColor;
+      ctx.fillRect(building.x - 5, building.y - 5, building.width + 10, building.height + 10);
+      
+      // Main building body
       ctx.fillStyle = building.color;
       ctx.fillRect(building.x, building.y, building.width, building.height);
       
-      // Roof
-      ctx.fillStyle = building.roofColor;
-      ctx.beginPath();
-      ctx.moveTo(building.x - 10, building.y);
-      ctx.lineTo(building.x + building.width / 2, building.y - 30);
-      ctx.lineTo(building.x + building.width + 10, building.y);
-      ctx.closePath();
-      ctx.fill();
+      // Border
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(building.x, building.y, building.width, building.height);
 
-      // Windows
-      const windowCols = Math.floor(building.windows / 3);
-      const windowRows = Math.ceil(building.windows / windowCols);
-      ctx.fillStyle = '#ffd700';
+      // Windows (top-down view - smaller squares)
+      const windowSize = 12;
+      const windowPadding = 20;
+      const cols = Math.floor((building.width - windowPadding) / (windowSize + 15));
+      const rows = Math.floor((building.height - windowPadding) / (windowSize + 15));
       
-      for (let row = 0; row < windowRows; row++) {
-        for (let col = 0; col < windowCols; col++) {
-          const wx = building.x + 15 + col * 25;
-          const wy = building.y + 20 + row * 35;
-          if (wy < building.y + building.height - 20) {
-            // Random lit/unlit windows
-            ctx.fillStyle = Math.random() > 0.3 ? '#ffd700' : '#654321';
-            ctx.fillRect(wx, wy, 18, 24);
-            // Window frame
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2;
-            ctx.strokeRect(wx, wy, 18, 24);
-          }
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const wx = building.x + windowPadding + col * (windowSize + 15);
+          const wy = building.y + windowPadding + row * (windowSize + 15);
+          
+          // Random lit/unlit windows
+          ctx.fillStyle = Math.random() > 0.4 ? '#ffd700' : '#654321';
+          ctx.fillRect(wx, wy, windowSize, windowSize);
+          ctx.strokeStyle = '#000';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(wx, wy, windowSize, windowSize);
         }
       }
 
-      // Door
+      // Door (centered at bottom)
+      const doorWidth = 20;
+      const doorHeight = 25;
       ctx.fillStyle = '#654321';
-      ctx.fillRect(building.x + building.width / 2 - 15, building.y + building.height - 35, 30, 35);
+      ctx.fillRect(
+        building.x + building.width / 2 - doorWidth / 2,
+        building.y + building.height - doorHeight - 5,
+        doorWidth,
+        doorHeight
+      );
       ctx.strokeStyle = '#000';
       ctx.lineWidth = 2;
-      ctx.strokeRect(building.x + building.width / 2 - 15, building.y + building.height - 35, 30, 35);
+      ctx.strokeRect(
+        building.x + building.width / 2 - doorWidth / 2,
+        building.y + building.height - doorHeight - 5,
+        doorWidth,
+        doorHeight
+      );
     }
 
     // Snowflakes
