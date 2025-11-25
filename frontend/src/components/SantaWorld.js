@@ -12,7 +12,53 @@ const SantaWorld = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [isConnecting, setIsConnecting] = useState(false);
 
+  // Check for Phantom wallet on mount
   useEffect(() => {
+    const checkPhantom = async () => {
+      if (window.solana && window.solana.isPhantom) {
+        // Check if already connected
+        const resp = await window.solana.connect({ onlyIfTrusted: true }).catch(() => null);
+        if (resp && resp.publicKey) {
+          setWalletAddress(resp.publicKey.toString());
+        }
+      }
+    };
+    checkPhantom();
+  }, []);
+
+  // Connect Phantom wallet
+  const connectWallet = async () => {
+    if (!window.solana || !window.solana.isPhantom) {
+      toast.error('Please install Phantom wallet!');
+      window.open('https://phantom.app/', '_blank');
+      return;
+    }
+
+    setIsConnecting(true);
+    try {
+      const resp = await window.solana.connect();
+      setWalletAddress(resp.publicKey.toString());
+      toast.success('Wallet connected!');
+    } catch (err) {
+      console.error('Wallet connection error:', err);
+      toast.error('Failed to connect wallet');
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
+  // Disconnect wallet
+  const disconnectWallet = async () => {
+    if (window.solana) {
+      await window.solana.disconnect();
+      setWalletAddress(null);
+      toast.success('Wallet disconnected');
+    }
+  };
+
+  useEffect(() => {
+    if (!walletAddress) return; // Don't start until wallet is connected
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     
