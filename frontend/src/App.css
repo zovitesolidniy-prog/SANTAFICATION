@@ -105,8 +105,8 @@
 
 /* Upload Area */
 .upload-area {
-  border: 4px dashed #667eea;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+  border: 4px dashed #c02425;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -118,8 +118,8 @@
 }
 
 .upload-area:hover {
-  border-color: #764ba2;
-  background: linear-gradient(135deg, #e8edff 0%, #dfe6ff 100%);
+  border-color: #a01f20;
+  background: linear-gradient(135deg, #ffe5e5 0%, #ffd5d5 100%);
   transform: scale(1.01);
 }
 
