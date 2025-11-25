@@ -18,6 +18,72 @@
   gap: 1rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border: 2px solid #14F195;
+  border-radius: 8px;
+}
+
+.wallet-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #14F195;
+  font-size: 0.7rem;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.disconnect-button {
+  background: #ff4444;
+  color: #fff;
+  border: 2px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disconnect-button:hover {
+  background: #cc0000;
+}
+
+.connect-wallet-button {
+  background: linear-gradient(135deg, #14F195, #9945FF);
+  color: #fff;
+  border: 3px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.connect-wallet-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.connect-wallet-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .world-title {
   flex: 1;
   text-align: center;
