@@ -95,7 +95,7 @@ async def pixelify_image(request: ImageRequest):
         chat = LlmChat(
             api_key=api_key,
             session_id=str(uuid.uuid4()),
-            system_message="You are a creative Pokemon artist specializing in pixelated art. Transform any image into a detailed description of how it would look as a pixelated Pokemon character in classic 8-bit or 16-bit style. Be vivid and descriptive about the colors, shapes, and Pokemon-like features."
+            system_message="You are a creative Christmas artist. Transform any character into a festive Santa version by adding Santa's iconic hat and beard while keeping the original character's features and personality."
         ).with_model("openai", "gpt-4o")
         
         # Create image content
@@ -103,7 +103,7 @@ async def pixelify_image(request: ImageRequest):
         
         # Create user message with image
         user_message = UserMessage(
-            text="Transform this image into a pixelated Pokemon character! Describe in vivid detail how this would look as a classic 8-bit or 16-bit Pokemon sprite. Include details about: the pixel art style, color palette (limited to classic Pokemon game colors), Pokemon-like features you would add, the type of Pokemon it resembles, signature moves it might have, and any unique characteristics. Make it fun and creative!",
+            text="Analyze this character and describe how it would look as a Santa version. The character should keep its original appearance, body shape, and features, but add: a classic red Santa hat with white trim and pom-pom, and a fluffy white Santa beard. Describe the colors, style, and how the Santa elements blend with the character's original design. Be detailed and creative!",
             file_contents=[image_content]
         )
         
