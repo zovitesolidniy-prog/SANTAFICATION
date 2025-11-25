@@ -148,13 +148,93 @@ const SantaWorld = () => {
         ctx.fillStyle = '#ffd700';
         ctx.fillRect(this.x + 6, this.y + 8, 4, 2);
 
+        // Solana coin if carrying
+        if (this.hasCoin) {
+          // Coin circle
+          ctx.fillStyle = '#14F195';
+          ctx.beginPath();
+          ctx.arc(this.x + 14, this.y - 5, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#000';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          
+          // SOL text
+          ctx.fillStyle = '#000';
+          ctx.font = '6px "Press Start 2P"';
+          ctx.fillText('$', this.x + 11, this.y - 3);
+        }
+
         // Name label (always show)
         const nameWidth = ctx.measureText(this.name).width + 8;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        ctx.fillRect(this.x - (nameWidth / 2) + 8, this.y - 18, nameWidth, 14);
+        ctx.fillRect(this.x - (nameWidth / 2) + 8, this.y - 28, nameWidth, 14);
         ctx.fillStyle = '#ffd700';
         ctx.font = '8px "Press Start 2P"';
-        ctx.fillText(this.name, this.x - (nameWidth / 2) + 12, this.y - 8);
+        ctx.fillText(this.name, this.x - (nameWidth / 2) + 12, this.y - 18);
+      }
+    }
+
+    // Reindeer class
+    class Reindeer {
+      constructor() {
+        this.x = Math.random() * (canvas.width - 40);
+        this.y = Math.random() * (canvas.height - 40);
+        this.width = 20;
+        this.height = 16;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        // Bounce off edges
+        if (this.x <= 0 || this.x >= canvas.width - this.width) {
+          this.speedX *= -1;
+          this.x = Math.max(0, Math.min(canvas.width - this.width, this.x));
+        }
+        if (this.y <= 0 || this.y >= canvas.height - this.height) {
+          this.speedY *= -1;
+          this.y = Math.max(0, Math.min(canvas.height - this.height, this.y));
+        }
+
+        // Random direction change
+        if (Math.random() < 0.02) {
+          this.speedX = (Math.random() - 0.5) * 1.5;
+          this.speedY = (Math.random() - 0.5) * 1.5;
+        }
+      }
+
+      draw() {
+        // Reindeer body (brown)
+        ctx.fillStyle = '#8B4513';
+        ctx.fillRect(this.x + 2, this.y + 4, 16, 10);
+        
+        // Head
+        ctx.fillRect(this.x, this.y + 2, 6, 6);
+        
+        // Antlers
+        ctx.strokeStyle = '#654321';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x + 2, this.y);
+        ctx.lineTo(this.x + 2, this.y - 5);
+        ctx.moveTo(this.x + 4, this.y);
+        ctx.lineTo(this.x + 4, this.y - 4);
+        ctx.stroke();
+        
+        // Red nose (Rudolph style)
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(this.x - 1, this.y + 4, 3, 3);
+        
+        // Legs
+        ctx.fillStyle = '#654321';
+        ctx.fillRect(this.x + 4, this.y + 14, 2, 4);
+        ctx.fillRect(this.x + 8, this.y + 14, 2, 4);
+        ctx.fillRect(this.x + 12, this.y + 14, 2, 4);
+        ctx.fillRect(this.x + 16, this.y + 14, 2, 4);
       }
     }
 
