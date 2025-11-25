@@ -101,8 +101,8 @@ function App() {
             />
           </div>
           <div className="title" data-testid="app-title">
-            <span className="title-text">POKÉMON</span>
-            <span className="title-sub">PIXELIZER</span>
+            <span className="title-text">SANTA</span>
+            <span className="title-sub">TRANSFORMER</span>
           </div>
           <div className="logo-container">
             <img 
