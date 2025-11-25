@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
