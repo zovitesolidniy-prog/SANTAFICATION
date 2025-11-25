@@ -363,6 +363,12 @@ const SantaWorld = () => {
       // Draw buildings
       buildings.forEach(building => drawBuilding(building));
 
+      // Update and draw reindeer
+      reindeer.forEach(deer => {
+        deer.update();
+        deer.draw();
+      });
+
       // Trees and decorations
       ctx.fillStyle = '#228B22';
       const treePositions = [
