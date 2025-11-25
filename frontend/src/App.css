@@ -360,6 +360,12 @@
   object-fit: contain;
 }
 
+.result-image.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 .result-description {
   background: #fff;
   border: 2px solid #000;
