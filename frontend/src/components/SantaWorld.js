@@ -510,14 +510,43 @@ const SantaWorld = () => {
         <h1 className="world-title" data-testid="world-title">
           <span className="world-title-text">SANTA TOWN</span>
         </h1>
-        <Button
-          onClick={() => navigate('/')}
-          className="back-button"
-          data-testid="back-button"
-        >
-          <Home size={16} />
-          BACK HOME
-        </Button>
+        
+        <div className="header-actions">
+          {walletAddress ? (
+            <div className="wallet-info">
+              <div className="wallet-address">
+                <Wallet size={16} />
+                {walletAddress.slice(0, 4)}...{walletAddress.slice(-4)}
+              </div>
+              <Button
+                onClick={disconnectWallet}
+                className="disconnect-button"
+                size="sm"
+              >
+                Disconnect
+              </Button>
+            </div>
+          ) : (
+            <Button
+              onClick={connectWallet}
+              disabled={isConnecting}
+              className="connect-wallet-button"
+              data-testid="connect-wallet-button"
+            >
+              <Wallet size={16} />
+              {isConnecting ? 'Connecting...' : 'Connect Phantom'}
+            </Button>
+          )}
+          
+          <Button
+            onClick={() => navigate('/')}
+            className="back-button"
+            data-testid="back-button"
+          >
+            <Home size={16} />
+            BACK HOME
+          </Button>
+        </div>
       </div>
 
       <div className="canvas-container">
