@@ -1,16 +1,22 @@
-import { useState, useRef } from "react";
 import "@/App.css";
-import axios from "axios";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Upload, Sparkles, Loader2, Globe } from "lucide-react";
-import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "@/pages/HomePage";
+import SantaWorld from "@/components/SantaWorld";
 
 function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/santa-world" element={<SantaWorld />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [loading, setLoading] = useState(false);
