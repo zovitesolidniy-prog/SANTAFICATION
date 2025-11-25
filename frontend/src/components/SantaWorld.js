@@ -41,29 +41,33 @@ const SantaWorld = () => {
 
     // Santa class
     class Santa {
-      constructor() {
+      constructor(index) {
         this.x = Math.random() * (canvas.width - 40);
-        this.y = canvas.height - 100;
+        this.y = Math.random() * (canvas.height - 40);
         this.width = 16;
-        this.height = 20;
-        this.speed = 0.5 + Math.random() * 1.5;
-        this.direction = Math.random() > 0.5 ? 1 : -1;
-        this.name = santaNames[Math.floor(Math.random() * santaNames.length)];
-        this.jumpOffset = Math.random() * Math.PI * 2;
-        this.showName = Math.random() > 0.7;
+        this.height = 16;
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+        this.name = santaNames[index % santaNames.length];
+        this.showName = true; // Always show name
       }
 
       update() {
-        this.x += this.speed * this.direction;
+        this.x += this.speedX;
+        this.y += this.speedY;
         
         // Bounce off edges
         if (this.x <= 0 || this.x >= canvas.width - this.width) {
-          this.direction *= -1;
+          this.speedX *= -1;
+        }
+        if (this.y <= 0 || this.y >= canvas.height - this.height) {
+          this.speedY *= -1;
         }
 
         // Random direction change
         if (Math.random() < 0.01) {
-          this.direction *= -1;
+          this.speedX = (Math.random() - 0.5) * 2;
+          this.speedY = (Math.random() - 0.5) * 2;
         }
       }
 
