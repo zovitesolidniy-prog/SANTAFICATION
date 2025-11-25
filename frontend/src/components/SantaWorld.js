@@ -397,6 +397,27 @@ const SantaWorld = () => {
         santa.draw();
       });
 
+      // Draw coin notifications
+      for (let i = coinNotifications.length - 1; i >= 0; i--) {
+        const notif = coinNotifications[i];
+        notif.offsetY -= 1;
+        notif.alpha -= 0.02;
+        
+        if (notif.alpha <= 0) {
+          coinNotifications.splice(i, 1);
+        } else {
+          ctx.save();
+          ctx.globalAlpha = notif.alpha;
+          ctx.fillStyle = '#14F195';
+          ctx.font = 'bold 16px "Press Start 2P"';
+          ctx.strokeStyle = '#000';
+          ctx.lineWidth = 3;
+          ctx.strokeText('+1', notif.x - 15, notif.y + notif.offsetY);
+          ctx.fillText('+1', notif.x - 15, notif.y + notif.offsetY);
+          ctx.restore();
+        }
+      }
+
       // Info text
       ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
       ctx.fillRect(10, 10, 300, 40);
