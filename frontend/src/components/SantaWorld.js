@@ -9,6 +9,8 @@ const SantaWorld = () => {
   const canvasRef = useRef(null);
   const navigate = useNavigate();
   const [santaCount, setSantaCount] = useState(0);
+  const [walletAddress, setWalletAddress] = useState(null);
+  const [isConnecting, setIsConnecting] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
