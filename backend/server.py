@@ -107,15 +107,36 @@ async def pixelify_image(request: ImageRequest):
             file_contents=[image_content]
         )
         
-        # Get response from GPT-4o
+        # Get response from GPT-4o (analysis and prompt creation)
         logger.info("Sending request to GPT-4o for image analysis")
-        response = await chat.send_message(user_message)
-        logger.info(f"Received response: {response[:100]}...")
+        analysis = await chat.send_message(user_message)
+        logger.info(f"Received analysis: {analysis[:100]}...")
+        
+        # Generate image using DALL-E
+        logger.info("Generating pixelated Pokemon image...")
+        image_gen = OpenAIImageGeneration(api_key=api_key)
+        
+        # Create a focused prompt for pixel art generation
+        generation_prompt = f"Create a pixelated 16-bit Pokemon sprite in classic Game Boy Advance style. {analysis[:200]}. The sprite should have: clear pixel edges, limited color palette (8-12 colors), simple shapes, Pokemon-like features, centered on white background, 256x256 pixels."
+        
+        images = await image_gen.generate_images(
+            prompt=generation_prompt,
+            model="gpt-image-1",
+            number_of_images=1
+        )
+        
+        if not images or len(images) == 0:
+            raise HTTPException(status_code=500, detail="Failed to generate image")
+        
+        # Convert generated image to base64
+        generated_image_base64 = base64.b64encode(images[0]).decode('utf-8')
+        logger.info("Image generated successfully")
         
         # Create response object
         result = ImageResponse(
             original_image=request.image_base64,
-            result_text=response
+            result_text=analysis,
+            generated_image=f"data:image/png;base64,{generated_image_base64}"
         )
         
         # Store in MongoDB
