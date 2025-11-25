@@ -162,13 +162,95 @@
   color: #ffd700;
 }
 
+.wallet-required {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wallet-required-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 4px solid #14F195;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(20, 241, 149, 0.3);
+}
+
+.wallet-required-card svg {
+  color: #14F195;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-required-card h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.wallet-required-card p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.connect-wallet-button-large {
+  background: linear-gradient(135deg, #14F195, #9945FF);
+  color: #fff;
+  border: 3px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.connect-wallet-button-large:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.install-hint {
+  font-size: 0.8rem !important;
+  margin-bottom: 0 !important;
+}
+
+.install-hint a {
+  color: #14F195;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .world-header {
     flex-direction: column;
     text-align: center;
   }
 
-  .back-button {
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .back-button,
+  .connect-wallet-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wallet-info {
     width: 100%;
     justify-content: center;
   }
@@ -176,5 +258,13 @@
   .info-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .wallet-required-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .wallet-required-card h2 {
+    font-size: 1.2rem;
   }
 }
