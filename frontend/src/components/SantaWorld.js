@@ -245,6 +245,12 @@ const SantaWorld = () => {
     }
     setSantaCount(santas.length);
 
+    // Create Reindeer
+    const reindeer = [];
+    for (let i = 0; i < 5; i++) {
+      reindeer.push(new Reindeer());
+    }
+
     // Draw building (top-down view)
     function drawBuilding(building) {
       // Roof (dark red top)
