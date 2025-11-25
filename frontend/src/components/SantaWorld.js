@@ -304,6 +304,23 @@ const SantaWorld = () => {
         doorWidth,
         doorHeight
       );
+
+      // Coin counter
+      if (building.coins > 0) {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        ctx.fillRect(building.x + 5, building.y + 5, 40, 18);
+        
+        // Solana coin icon
+        ctx.fillStyle = '#14F195';
+        ctx.beginPath();
+        ctx.arc(building.x + 15, building.y + 14, 6, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Count
+        ctx.fillStyle = '#ffd700';
+        ctx.font = '10px "Press Start 2P"';
+        ctx.fillText(building.coins, building.x + 24, building.y + 18);
+      }
     }
 
     // Snowflakes
