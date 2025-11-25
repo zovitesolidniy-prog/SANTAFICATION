@@ -234,7 +234,7 @@ function App() {
                   size="lg"
                 >
                   <Upload className="button-icon" size={20} />
-                  PIXELIFY ANOTHER
+                  TRANSFORM ANOTHER
                 </Button>
               </CardContent>
             </Card>
