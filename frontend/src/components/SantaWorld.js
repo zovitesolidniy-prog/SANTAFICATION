@@ -226,15 +226,26 @@ const SantaWorld = () => {
       // Draw buildings
       buildings.forEach(building => drawBuilding(building));
 
-      // Update and draw snowflakes
-      snowflakes.forEach(flake => {
-        flake.y += flake.speed;
-        if (flake.y > canvas.height) {
-          flake.y = 0;
-          flake.x = Math.random() * canvas.width;
-        }
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(flake.x, flake.y, flake.size, flake.size);
+      // Trees and decorations
+      ctx.fillStyle = '#228B22';
+      const treePositions = [
+        { x: 50, y: 50 }, { x: 600, y: 50 }, { x: 1100, y: 50 },
+        { x: 150, y: 400 }, { x: 900, y: 400 }, { x: 1400, y: 400 },
+        { x: 50, y: 650 }, { x: 600, y: 650 }, { x: 1450, y: 650 }
+      ];
+      treePositions.forEach(pos => {
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y + 20);
+        ctx.lineTo(pos.x - 15, pos.y + 35);
+        ctx.lineTo(pos.x + 15, pos.y + 35);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+        ctx.lineTo(pos.x - 15, pos.y + 20);
+        ctx.lineTo(pos.x + 15, pos.y + 20);
+        ctx.closePath();
+        ctx.fill();
       });
 
       // Update and draw Santas
