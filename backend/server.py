@@ -10,6 +10,7 @@ from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
 from emergentintegrations.llm.chat import LlmChat, UserMessage, ImageContent
+from emergentintegrations.llm.openai.image_generation import OpenAIImageGeneration
 import base64
 import io
 from PIL import Image
