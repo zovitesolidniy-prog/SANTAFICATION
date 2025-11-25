@@ -46,6 +46,7 @@ class ImageResponse(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     original_image: str
     result_text: str
+    generated_image: str
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class PokemonHistory(BaseModel):
