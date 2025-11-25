@@ -52,25 +52,73 @@ const SantaWorld = () => {
         this.speedX = (Math.random() - 0.5) * 2;
         this.speedY = (Math.random() - 0.5) * 2;
         this.name = santaNames[index % santaNames.length];
-        this.showName = true; // Always show name
+        this.showName = true;
+        this.hasCoin = true;
+        this.targetBuilding = null;
       }
 
       update() {
+        // Find nearest building if has coin and no target
+        if (this.hasCoin && !this.targetBuilding) {
+          let nearestDist = Infinity;
+          buildings.forEach(building => {
+            const centerX = building.x + building.width / 2;
+            const centerY = building.y + building.height / 2;
+            const dist = Math.hypot(centerX - this.x, centerY - this.y);
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              this.targetBuilding = building;
+            }
+          });
+        }
+
+        // Move towards target building if has coin
+        if (this.hasCoin && this.targetBuilding) {
+          const centerX = this.targetBuilding.x + this.targetBuilding.width / 2;
+          const centerY = this.targetBuilding.y + this.targetBuilding.height / 2;
+          const dx = centerX - this.x;
+          const dy = centerY - this.y;
+          const dist = Math.hypot(dx, dy);
+          
+          if (dist < 30) {
+            // Delivered!
+            this.hasCoin = false;
+            this.targetBuilding.coins++;
+            coinNotifications.push({
+              x: this.targetBuilding.x + this.targetBuilding.width / 2,
+              y: this.targetBuilding.y - 20,
+              alpha: 1,
+              offsetY: 0
+            });
+            this.targetBuilding = null;
+            
+            // Get new coin after delay
+            setTimeout(() => {
+              this.hasCoin = true;
+            }, 2000);
+          } else {
+            this.speedX = (dx / dist) * 1.5;
+            this.speedY = (dy / dist) * 1.5;
+          }
+        } else if (!this.hasCoin) {
+          // Random movement when no coin
+          this.speedX += (Math.random() - 0.5) * 0.2;
+          this.speedY += (Math.random() - 0.5) * 0.2;
+          this.speedX = Math.max(-2, Math.min(2, this.speedX));
+          this.speedY = Math.max(-2, Math.min(2, this.speedY));
+        }
+
         this.x += this.speedX;
         this.y += this.speedY;
         
         // Bounce off edges
         if (this.x <= 0 || this.x >= canvas.width - this.width) {
           this.speedX *= -1;
+          this.x = Math.max(0, Math.min(canvas.width - this.width, this.x));
         }
         if (this.y <= 0 || this.y >= canvas.height - this.height) {
           this.speedY *= -1;
-        }
-
-        // Random direction change
-        if (Math.random() < 0.01) {
-          this.speedX = (Math.random() - 0.5) * 2;
-          this.speedY = (Math.random() - 0.5) * 2;
+          this.y = Math.max(0, Math.min(canvas.height - this.height, this.y));
         }
       }
 
