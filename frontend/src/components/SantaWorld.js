@@ -25,6 +25,9 @@ const SantaWorld = () => {
       'Merry', 'Cheer', 'Holly', 'Ivy', 'Noel'
     ];
 
+    // Coin notifications
+    const coinNotifications = [];
+
     // Buildings (top-down view)
     const buildings = [
       { x: 100, y: 150, width: 150, height: 120, color: '#8B4513', roofColor: '#c02425' },
