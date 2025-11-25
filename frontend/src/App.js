@@ -172,7 +172,7 @@ function App() {
                       ) : (
                         <>
                           <Sparkles className="button-icon" size={20} />
-                          PIXELIFY!
+                          SANTAFY!
                         </>
                       )}
                     </Button>
