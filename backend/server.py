@@ -158,7 +158,7 @@ async def get_history():
     Get the history of all pixelified images
     """
     try:
-        history = await db.pokemon_conversions.find({}, {"_id": 0}).sort("timestamp", -1).limit(10).to_list(10)
+        history = await db.santa_conversions.find({}, {"_id": 0}).sort("timestamp", -1).limit(10).to_list(10)
         
         # Convert ISO string timestamps back to datetime objects
         for item in history:
