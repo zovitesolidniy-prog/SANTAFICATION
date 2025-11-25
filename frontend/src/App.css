@@ -527,10 +527,10 @@
 }
 
 .result-description::-webkit-scrollbar-thumb {
-  background: #667eea;
+  background: #c02425;
   border: 1px solid #000;
 }
 
 .result-description::-webkit-scrollbar-thumb:hover {
-  background: #764ba2;
+  background: #a01f20;
 }
