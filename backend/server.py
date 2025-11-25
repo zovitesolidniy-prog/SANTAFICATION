@@ -55,6 +55,7 @@ class PokemonHistory(BaseModel):
     id: str
     original_image: str
     result_text: str
+    generated_image: str
     timestamp: datetime
 
 # Routes
