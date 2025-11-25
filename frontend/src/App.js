@@ -69,7 +69,7 @@ function App() {
       });
 
       setResult(response.data);
-      toast.success("Image pixelified successfully!");
+      toast.success("Character transformed into Santa!");
     } catch (error) {
       console.error("Error pixelifying image:", error);
       toast.error(error.response?.data?.detail || "Failed to process image");
